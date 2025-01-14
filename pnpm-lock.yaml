@@ -632,6 +632,9 @@ importers:
       '@nextui-org/aria-utils':
         specifier: workspace:*
         version: link:../../utilities/aria-utils
+      '@nextui-org/disclosure':
+        specifier: workspace:*
+        version: link:../disclosure
       '@nextui-org/divider':
         specifier: workspace:*
         version: link:../divider
@@ -665,6 +668,9 @@ importers:
       '@react-aria/utils':
         specifier: 3.26.0
         version: 3.26.0(react@18.2.0)
+      '@react-stately/disclosure':
+        specifier: ^3.0.0
+        version: 3.0.0(react@18.2.0)
       '@react-stately/tree':
         specifier: 3.8.6
         version: 3.8.6(react@18.2.0)
