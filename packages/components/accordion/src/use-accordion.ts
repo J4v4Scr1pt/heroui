@@ -42,7 +42,7 @@ interface Props extends HTMLNextUIProps<"div"> {
 }
 
 export type UseAccordionProps<T extends object = {}> = Props &
-  AccordionItemProps &
+  AccordionGroupVariantProps &
   AriaAccordionProps<T> &
   MultipleSelection &
   AccordionGroupVariantProps;
