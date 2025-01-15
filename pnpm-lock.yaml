@@ -1493,6 +1493,15 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0(react@18.2.0)
     devDependencies:
+      '@nextui-org/avatar':
+        specifier: workspace:*
+        version: link:../avatar
+      '@nextui-org/button':
+        specifier: workspace:*
+        version: link:../button
+      '@nextui-org/input':
+        specifier: workspace:*
+        version: link:../input
       '@nextui-org/system':
         specifier: workspace:*
         version: link:../../core/system

@@ -1,10 +1,10 @@
-import type {AccordionItemVariantProps} from "@nextui-org/theme";
+import type {DisclosureVariantProps} from "@nextui-org/theme";
 
-import {accordionItem, AccordionItemSlots, SlotsToClasses} from "@nextui-org/theme";
+import {DisclosureSlots, SlotsToClasses} from "@nextui-org/theme";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {ReactRef} from "@nextui-org/react-utils";
 import {DisclosureProps} from "@nextui-org/disclosure";
-import {Key, useCallback, useMemo} from "react";
+import {Key, useCallback} from "react";
 import {callAllHandlers} from "@nextui-org/shared-utils";
 
 import {useAccordianContext} from "./accordian-context";
@@ -17,12 +17,12 @@ export interface Props extends Omit<HTMLNextUIProps<"div">, "title"> {
   ref?: ReactRef<HTMLButtonElement | null>;
   id: string;
   disabledKeys?: Iterable<Key>;
-  classNames?: SlotsToClasses<AccordionItemSlots>;
+  classNames?: SlotsToClasses<DisclosureSlots>;
   onFocusChange?: (isFocused: boolean, key?: React.Key) => void;
 }
 
 export type UseAccordionItemProps = Props &
-  AccordionItemVariantProps &
+  DisclosureVariantProps &
   DisclosureProps &
   Omit<AccordionItemBaseProps, "onFocusChange">;
 
@@ -72,12 +72,9 @@ export function useAccordionItem(originalProps: UseAccordionItemProps) {
     classNames,
   };
 
-  const slots = useMemo(() => accordionItem(), []);
-
   const getBaseProps: PropGetter = useCallback(
     (props = {}) => {
       return {
-        className: slots.base({class: classNames?.base}),
         "data-hidden": originalProps.hidden,
         ...props,
       };
