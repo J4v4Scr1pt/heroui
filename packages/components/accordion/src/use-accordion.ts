@@ -1,4 +1,3 @@
-import type {MultipleSelection} from "@react-types/shared";
 import type {AriaAccordionProps} from "@react-types/accordion";
 import type {AccordionGroupVariantProps} from "@nextui-org/theme";
 import type {HTMLNextUIProps} from "@nextui-org/system";
@@ -45,7 +44,6 @@ interface Props extends HTMLNextUIProps<"div"> {
 export type UseAccordionProps<T extends object = {}> = Props &
   AccordionGroupVariantProps &
   AriaAccordionProps<T> &
-  MultipleSelection &
   AccordionGroupVariantProps &
   Pick<
     AccordionItemProps,

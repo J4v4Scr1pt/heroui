@@ -638,12 +638,6 @@ importers:
       '@nextui-org/divider':
         specifier: workspace:*
         version: link:../divider
-      '@nextui-org/dom-animation':
-        specifier: workspace:*
-        version: link:../../utilities/dom-animation
-      '@nextui-org/framer-utils':
-        specifier: workspace:*
-        version: link:../../utilities/framer-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -653,9 +647,6 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
-      '@nextui-org/use-aria-accordion':
-        specifier: workspace:*
-        version: link:../../hooks/use-aria-accordion
       '@react-aria/button':
         specifier: 3.11.0
         version: 3.11.0(react@18.2.0)
@@ -671,9 +662,6 @@ importers:
       '@react-stately/disclosure':
         specifier: ^3.0.0
         version: 3.0.0(react@18.2.0)
-      '@react-stately/tree':
-        specifier: 3.8.6
-        version: 3.8.6(react@18.2.0)
       '@react-types/accordion':
         specifier: 3.0.0-alpha.25
         version: 3.0.0-alpha.25(react@18.2.0)
