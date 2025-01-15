@@ -29,6 +29,7 @@ export function useAccordionItem(originalProps: UseAccordionItemProps) {
   const {state, values} = useAccordianContext();
 
   const {id, classNames, ...otherProps} = originalProps;
+  const {isDisabled} = values;
 
   const containsKey = (iterable: Iterable<Key> | undefined, key: Key): boolean => {
     if (!iterable) {
@@ -49,7 +50,7 @@ export function useAccordionItem(originalProps: UseAccordionItemProps) {
     ...values,
     ...otherProps,
     isExpanded: state.expandedKeys.has(id),
-    isDisabled: containsKey(disabledKeys, id),
+    isDisabled: containsKey(disabledKeys, id) || isDisabled,
     onExpandedChange(isExpanded) {
       if (state) {
         state.toggleKey(id);

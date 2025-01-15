@@ -33,11 +33,10 @@ export default {
         type: "boolean",
       },
     },
-    selectionMode: {
+    allowsMultipleExpanded: {
       control: {
-        type: "select",
+        type: "boolean",
       },
-      options: ["single", "multiple"],
     },
     disableAnimation: {
       control: {
@@ -47,7 +46,9 @@ export default {
   },
 } as Meta<typeof Accordion>;
 
-const defaultProps = {};
+const defaultProps = {
+  allowsMultipleExpanded: false,
+};
 
 const defaultContent =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
