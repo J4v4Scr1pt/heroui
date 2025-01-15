@@ -49,12 +49,7 @@ export type UseAccordionProps<T extends object = {}> = Props &
   AccordionGroupVariantProps &
   Pick<
     AccordionItemProps,
-    | "isCompact"
-    | "isDisabled"
-    | "hideIndicator"
-    | "disableAnimation"
-    | "disableIndicatorAnimation"
-    | "motionProps"
+    "isCompact" | "isDisabled" | "hideIndicator" | "disableAnimation" | "disableIndicatorAnimation"
   >;
 
 export type ValuesType = {
@@ -65,20 +60,19 @@ export type ValuesType = {
   disableAnimation?: AccordionItemProps["disableAnimation"];
   keepContentMounted?: Props["keepContentMounted"];
   disableIndicatorAnimation?: AccordionItemProps["disableAnimation"];
-  motionProps?: AccordionItemProps["motionProps"];
   disabledKeys?: Iterable<Key>;
   lastChildId?: string;
   dividerProps?: Partial<DividerProps>;
+  showDivider?: boolean;
+  fullWidth?: boolean;
 };
 
 export function useAccordion<T extends object>(originalProps: UseAccordionProps<T>) {
-  const state = useDisclosureGroupState(originalProps);
   const globalContext = useProviderContext();
 
   const {
     as,
     ref,
-    motionProps,
     isCompact = false,
     isDisabled,
     hideIndicator = false,
@@ -89,7 +83,13 @@ export function useAccordion<T extends object>(originalProps: UseAccordionProps<
     className,
     children,
     dividerProps,
+    keepContentMounted,
+    showDivider = true,
+    fullWidth = true,
+    onExpandedChange,
   } = originalProps;
+
+  const state = useDisclosureGroupState({...originalProps, onExpandedChange});
 
   const Component = as || "div";
   const shouldFilterDOMProps = typeof Component === "string";
@@ -98,7 +98,6 @@ export function useAccordion<T extends object>(originalProps: UseAccordionProps<
 
   const values: ValuesType = useMemo(
     () => ({
-      motionProps,
       isCompact,
       isDisabled,
       hideIndicator,
@@ -107,6 +106,9 @@ export function useAccordion<T extends object>(originalProps: UseAccordionProps<
       disabledKeys,
       lastChildId,
       dividerProps,
+      keepContentMounted,
+      showDivider,
+      fullWidth,
     }),
     [
       isCompact,
@@ -116,9 +118,11 @@ export function useAccordion<T extends object>(originalProps: UseAccordionProps<
       state?.expandedKeys.values,
       disableIndicatorAnimation,
       state.expandedKeys.size,
-      motionProps,
       disabledKeys,
       lastChildId,
+      keepContentMounted,
+      showDivider,
+      fullWidth,
     ],
   );
 
@@ -153,6 +157,7 @@ export function useAccordion<T extends object>(originalProps: UseAccordionProps<
     Component,
     getBaseProps,
     domRef,
+    showDivider,
   };
 }
 

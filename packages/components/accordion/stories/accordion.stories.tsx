@@ -43,6 +43,16 @@ export default {
         type: "boolean",
       },
     },
+    showDivider: {
+      control: {
+        type: "boolean",
+      },
+    },
+    hideIndicator: {
+      control: {
+        type: "boolean",
+      },
+    },
   },
 } as Meta<typeof Accordion>;
 
@@ -426,6 +436,15 @@ export const DefaultExpanded = {
   args: {
     ...defaultProps,
     defaultExpandedKeys: ["2"],
+  },
+};
+
+export const KeepContentMounted = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    keepContentMounted: true,
   },
 };
 
