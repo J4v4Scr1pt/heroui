@@ -3185,6 +3185,9 @@ importers:
       '@nextui-org/date-picker':
         specifier: workspace:*
         version: link:../../components/date-picker
+      '@nextui-org/disclosure':
+        specifier: workspace:*
+        version: link:../../components/disclosure
       '@nextui-org/divider':
         specifier: workspace:*
         version: link:../../components/divider
